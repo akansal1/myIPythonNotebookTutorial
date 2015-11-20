@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PivotTable.js</title>
+        
+        <!-- external libs from cdnjs -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/pivot.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/pivot.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/d3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/c3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/export_renderers.min.js"></script>
+
+        <style>
+            body {font-family: Verdana;}
+            .node {
+              border: solid 1px white;
+              font: 10px sans-serif;
+              line-height: 12px;
+              overflow: hidden;
+              position: absolute;
+              text-indent: 2px;
+            }
+            .c3-line, .c3-focused {stroke-width: 3px !important;}
+            .c3-bar {stroke: white !important; stroke-width: 1;}
+            .c3 text { font-size: 12px; color: grey;}
+            .tick line {stroke: white;}
+            .c3-axis path {stroke: grey;}
+            .c3-circle { opacity: 1 !important; }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(function(){
+                if(window.location != window.parent.location)
+                    $("<a>", {target:"_blank", href:""})
+                        .text("[pop out]").prependTo($("body"));
+                    
+                $("#output").pivotUI( 
+                    $.csv.toArrays($("#output").text()), 
+                    { 
+                        renderers: $.extend(
+                            $.pivotUtilities.renderers, 
+                            $.pivotUtilities.c3_renderers, 
+                            $.pivotUtilities.d3_renderers,
+                            $.pivotUtilities.export_renderers
+                            ),
+                        hiddenAttributes: [""]
+                    }
+                ).show();
+             });
+        </script>
+        <div id="output" style="display: none;">,0.00828506027205, 0.571477599162 
+0,0.00847561665831,0.562573394313
+1,0.008670555841450002,0.557678953849
+2,0.0088699786258,0.538665648289
+3,0.009073988134190001,0.5359475435100001
+4,0.00928268986128,0.513976631256
+5,0.00949619172809,0.509182113094
+6,0.00971460413784,0.43548766866099997
+7,0.00993804003301,0.498625419679
+8,0.0101666149538,0.436618507867
+9,0.010400447097700001,0.299344491309
+10,0.010639657381,0.212395023264
+11,0.0108843695007,0.175419754771
+12,0.0111347099992,0.153409486281
+13,0.011390808329200001,0.130481288586
+14,0.011652796920799999,0.121949304454
+15,0.01192081125,0.0999947710434
+16,0.0124754746766,0.280361705646
+17,0.0127624105942,0.25533883728
+18,0.0130559460378,0.21298056799000004
+19,0.0133562327967,0.220071269493
+20,0.013663426151,0.192191364683
+21,0.0139776849525,0.181409085255
+22,0.014299171706399999,0.17085931420400002
+23,0.0146280526557,0.14506966059
+24,0.0149644978667,0.116450751944
+25,0.015308681317700001,0.104151758828
+26,0.015660780988,0.07796541706639999
+27,0.0160209789507,0.0638080491824
+28,0.0163894614666,0.059156299642400004
+29,0.017152046719200002,0.351336566044
+30,0.0175465437937,0.31021404968000005
+31,0.017950114300900002,0.26993618750500004
+32,0.018362966929900002,0.27836628410799996
+33,0.018785315169299998,0.252055229408
+34,0.019217377418099996,0.245065857643
+35,0.019659377098799998,0.211211519765
+36,0.020111542771999998,0.171971010394
+37,0.0205741082558,0.157108470844
+38,0.0210473127457,0.144348440031
+39,0.021531400938800002,0.11522944819900001
+40,0.0220266231604,0.10453619973999999
+41,0.022533235493099997,0.10991546969100001
+42,0.0230514999095,0.0934101220519
+43,0.0235816844074,0.091490998332
+44,0.024124063148699998,0.0902837524439
+45,0.0246789166012,0.07808300206989999
+46,0.025246531683,0.0698012458208
+47,0.0258272019117,0.07334394057860001
+48,0.026421227555700002,0.06343149655830001
+49,0.027650580852600002,0.152145422394
+50,0.028286544212199997,0.13453071665
+51,0.0289371347291,0.11503763719900001
+52,0.0296026888279,0.11725979281
+53,0.0302835506709,0.103623386332
+54,0.030980072336300003,0.09901154348880001
+55,0.0316926140001,0.102092923684
+56,0.0324215441221,0.07764928499280001
+57,0.0331672396369,0.0836241866953
+58,0.0339300861485,0.07320729769949999
+59,0.0347104781299,0.060821193771199995
+60,0.0355088191269,0.0557262729583
+61,0.036325521966900004,0.0557697850975
+62,0.03716100897209999,0.053331258189500005
+63,0.0380157121784,0.042815064400800004
+64,0.0388900735586,0.0411119220456
+65,0.039784545250400004,0.0388712982576
+66,0.040699589791199996,0.0335994382051
+67,0.0416356803564,0.0277814984588
+68,0.0425933010045,0.0259653656728
+69,0.043572946927699995,0.028754895562400004
+70,0.044575124707,0.022472509958900003
+71,0.0456003525753,0.0202923650297
+72,0.0466491606845,0.017467486949900003
+73,0.0477220913802,0.018285930295500002
+74,0.048819699482000004,0.0166888332263
+</div>
+    </body>
+</html>
